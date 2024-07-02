@@ -10,12 +10,12 @@ export class UsersController {
 
     @Get()
     getAll() {
-        return this.usersService.getAll();
+        return this.usersService.findAll();
     }
 
     @Get(':userId')
     getById(@Param('userId', ParseIntPipe) userId: number) {
-        return this.usersService.getUserById(userId);
+        return this.usersService.findOne(userId);
     }
 
     @Post()
@@ -30,6 +30,6 @@ export class UsersController {
 
     @Delete(':userId')
     delete(@Param('userId', ParseIntPipe) userId: number) {
-        return this.usersService.delete(userId);
+        return this.usersService.remove(userId);
     }
 }
